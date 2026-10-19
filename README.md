@@ -135,8 +135,8 @@ These choices are **illustrative**, not forecasts or real lending-policy recomme
 
 ## Next improvements
 
-- [ ] Record actual ROC-AUC scores and cutoff results in a reproducible results table.
-- [ ] Save a few charts/screenshots in an `images/` folder.
+- [x] Record actual ROC-AUC scores and cutoff results in a reproducible results table.
+- [x] Save a few charts/screenshots in an `images/` folder.
 - [ ] Add a data dictionary and describe how the synthetic data was generated.
 - [ ] Document train/test split assumptions and consider cross-validation and model calibration.
 - [ ] Add an explicit license if you intend to allow reuse.
