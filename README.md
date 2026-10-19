@@ -36,6 +36,23 @@ All files are currently at the repository root. The structure above reflects the
 4. Fit logistic regression and random forest models; evaluate discrimination using ROC-AUC.
 5. Estimate account-level PD and simplified expected loss.
 6. Compare total expected profit across possible PD-based approval cutoffs.
+## 📊 Exploratory Data Analysis & Visualizations
+
+This analysis uses a simulated dataset of 1,500 credit-card accounts, including 66 recorded defaults (4.4%).
+
+### Credit Utilization vs. Default Rate
+
+![Default Rate by Credit Utilization](images/credit_risk_default_by_utilization.png)
+
+The highest observed default rate was approximately 6.7% among accounts with 75–100% credit utilization. These results describe this simulated dataset and do not establish causation.
+
+### Late Payments vs. Default Rate
+
+![Default Rate by Late Payments](images/credit_risk_default_by_late_payments.png)
+
+Accounts with no late payments had an observed default rate of approximately 3.3%, compared with 5.5% among accounts with one late payment.
+
+**Key takeaway:** Exploratory analysis reveals patterns that can guide further credit risk modeling. These descriptive results are not model performance metrics or real-world lending recommendations.
 
 ## Important financial assumptions
 
