@@ -1,126 +1,100 @@
-[README.md](https://github.com/user-attachments/files/23738781/README.md)
 # Credit Card Default Risk Analysis
-### Predictive Modeling • Risk Analysis • Profit Optimization  
 
-**Tools:** Python, Pandas, NumPy, Matplotlib, Scikit-Learn  
-**Techniques:** Logistic Regression, Random Forest, EDA, ROC Analysis, Expected Loss Modeling, Profit Optimization
+**Finance × Data Analytics | Python • Credit Risk • Decision Modeling**
 
----
+## Overview
 
-## 📌 Project Overview
+This project uses a **simulated credit-card dataset** to explore how financial institutions can estimate the probability of default and assess different credit-approval thresholds. The analysis combines exploratory data analysis, classification models, and a simplified expected-profit framework.
 
-This project builds a complete end-to-end **credit risk modeling pipeline** simulating how a bank predicts customer default and optimizes credit approval decisions. The workflow includes:
+**Business question:** How do customer risk characteristics affect default predictions, and how might different probability-of-default (PD) cutoffs change the simulated portfolio's expected profitability?
 
-- Data cleaning and feature engineering  
-- Exploratory data analysis (EDA)  
-- Logistic Regression and Random Forest modeling  
-- Probability of Default (PD) estimation  
-- Expected Loss (EL) and profit modeling  
-- Portfolio optimization using PD cutoff sweeps  
-- Final recommended PD threshold for credit approval  
+## Tools and methods
 
-This project mirrors real-world credit risk practices used in banking and financial institutions.
+- **Python:** pandas, NumPy, Matplotlib, scikit-learn
+- **Models:** Logistic Regression and Random Forest
+- **Evaluation:** ROC-AUC, ROC curves, classification reports, confusion matrices, feature importance
+- **Finance:** Probability of default, loss given default, exposure at default, expected loss, approval-threshold simulation
 
----
+## Repository contents
 
-## 📁 Repository Structure
-
-```
+```text
 Credit-Card-Default-Risk-Analysis/
-│
-├── README.md
+├── Credit_Risk_Project_Notebook (1).ipynb
+├── Credit_Risk_Report.pdf
+├── credit_risk_dataset.csv
 ├── requirements.txt
-│
-├── data/
-│   └── credit_risk_dataset.csv
-│
-├── notebooks/
-│   └── Credit_Risk_Project_Notebook.ipynb
-│
-├── reports/
-│   ├── Credit_Risk_Report.pdf
-│   └── Credit_Risk_Presentation.pptx
-│
-└── src/
-    ├── model_training.py
-    ├── risk_calculation.py
-    ├── optimization.py
-    └── utils.py
+└── README.md
 ```
 
----
+All files are currently at the repository root. The structure above reflects the actual uploaded files, not a proposed future layout.
 
-## 🔍 Key Results
+## Analytical workflow
 
-- Random Forest showed the strongest predictive power (higher ROC-AUC)  
-- PD scores were generated for each account  
-- Expected Loss (EL = PD × LGD × EAD) calculated for portfolio  
-- Profit optimization identified the PD cutoff that maximizes lending profitability  
-- EDA revealed strong behavioral signals like utilization and delinquency history  
+1. Inspect the simulated dataset and default target.
+2. Clean observations and engineer utilization-based features.
+3. Explore risk indicators through charts and summary statistics.
+4. Fit logistic regression and random forest models; evaluate discrimination using ROC-AUC.
+5. Estimate account-level PD and simplified expected loss.
+6. Compare total expected profit across possible PD-based approval cutoffs.
 
----
+## Important financial assumptions
 
-## 📊 Example Outputs
+The notebook models expected loss as **PD × LGD × EAD** and uses these demonstration assumptions:
 
-- ROC curves (Logistic Regression vs Random Forest)  
-- Feature importance chart  
-- Default rate by utilization bands  
-- Profit vs PD cutoff optimization graph  
+| Assumption | Value used in the notebook |
+|---|---:|
+| Loss given default (LGD) | 60% |
+| Exposure at default (EAD) proxy | Account credit limit |
+| Annual interest-revenue rate | 18% of credit limit |
+| Approval threshold search | PD cutoffs from 0.01 to 0.30 |
 
-(All outputs visible in the notebook.)
+These choices are **illustrative**, not forecasts or real lending-policy recommendations. The simplified expected-profit formula does not fully model funding costs, servicing expenses, recoveries, utilization dynamics, adverse selection, or regulatory/fairness constraints.
 
----
+## How to run
 
-## 🧠 Skills Demonstrated
+1. Clone the repository:
 
-- Machine Learning (classification)  
-- Financial Risk Modeling  
-- Portfolio Optimization  
-- Exploratory Data Analysis  
-- Python data workflows  
-- Visualization using Matplotlib  
-- Interpretability (feature importance, score trends)
+   ```bash
+   git clone https://github.com/notregularjolpai/Credit-Card-Default-Risk-Analysis.git
+   cd Credit-Card-Default-Risk-Analysis
+   ```
 
----
+2. Install dependencies:
 
-## ▶️ How to Run This Project
+   ```bash
+   python -m pip install -r requirements.txt
+   ```
 
-### **1. Clone the repo**
-```bash
-git clone https://github.com/yourusername/Credit-Card-Default-Risk-Analysis.git
-cd Credit-Card-Default-Risk-Analysis
-```
+3. Launch Jupyter Notebook **from the repository root** so it can find `credit_risk_dataset.csv`:
 
-### **2. Install dependencies**
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   jupyter notebook "Credit_Risk_Project_Notebook (1).ipynb"
+   ```
 
-### **3. Launch the notebook**
-```bash
-jupyter notebook notebooks/Credit_Risk_Project_Notebook.ipynb
-```
+4. Run the notebook cells in order. Review the printed ROC-AUC scores, model results, and cutoff comparison after execution.
 
----
+## Deliverables
 
-## 📦 Requirements
+- [Analysis notebook](./Credit_Risk_Project_Notebook%20(1).ipynb)
+- [Project report (PDF)](./Credit_Risk_Report.pdf)
+- [Simulated input dataset](./credit_risk_dataset.csv)
 
-```
-numpy
-pandas
-matplotlib
-scikit-learn
-jupyter
-```
+## Interpretation and limitations
 
----
+- The project demonstrates a **methodology**, not a production-ready credit decisioning engine.
+- Model scores and the highest-profit cutoff should be **reported only after running and validating** the notebook. They are not hard-coded here because the repository's saved notebook does not include result outputs.
+- Results from synthetic data should not be generalized to real applicants or institutions.
+- Before production use, a model would need out-of-time validation, calibration checks, fairness/compliance review, data governance, and more realistic financial assumptions.
 
-## 📜 License
-MIT License (free to use, modify, and share)
+## Next improvements
+
+- [ ] Record actual ROC-AUC scores and cutoff results in a reproducible results table.
+- [ ] Save a few charts/screenshots in an `images/` folder.
+- [ ] Add a data dictionary and describe how the synthetic data was generated.
+- [ ] Document train/test split assumptions and consider cross-validation and model calibration.
+- [ ] Add an explicit license if you intend to allow reuse.
 
 ---
 
-## 👨‍💻 Author
-**Ashraful Enam**  
-
----
+**Author:** [Ashraful Enam](https://github.com/notregularjolpai)  
+**Purpose:** Educational financial risk analytics portfolio project.
