@@ -54,6 +54,37 @@ Accounts with no late payments had an observed default rate of approximately 3.3
 
 **Key takeaway:** Exploratory analysis reveals patterns that can guide further credit risk modeling. These descriptive results are not model performance metrics or real-world lending recommendations.
 
+## 📈 Machine Learning Model Performance
+
+The models were evaluated on 450 held-out accounts from a simulated credit-card dataset.
+
+| Model | ROC-AUC Score |
+|---|---:|
+| Logistic Regression | 0.472 |
+| Random Forest | 0.641 |
+
+**Key Finding:** Random Forest achieved higher ROC-AUC than Logistic Regression. However, its score of 0.641 indicates modest discriminatory performance, while Logistic Regression performed below the 0.50 random-ranking benchmark.
+
+## 💰 Credit Risk & Profitability Analysis
+
+| Financial Metric | Result |
+|---|---:|
+| Selected PD Cutoff | 21% |
+| Test Accounts | 450 |
+| Approved Accounts | 450 |
+| Approval Rate | 100% |
+| Average Predicted PD | 5.03% |
+| Modeled Expected Loss | $154,147.97 |
+| Modeled Expected Profit | $838,552.16 |
+
+### Business Interpretation
+
+The simulated profit calculation identified a 21% probability-of-default cutoff as the highest-profit threshold among those tested.
+
+However, all 450 test accounts were approved at this threshold. Therefore, the simulation does not demonstrate the benefits of selective lending.
+
+These figures are illustrative results based on synthetic data and simplified financial assumptions. They are not validated forecasts or real-world credit approval recommendations.
+
 ## Important financial assumptions
 
 The notebook models expected loss as **PD × LGD × EAD** and uses these demonstration assumptions:
@@ -99,7 +130,6 @@ These choices are **illustrative**, not forecasts or real lending-policy recomme
 ## Interpretation and limitations
 
 - The project demonstrates a **methodology**, not a production-ready credit decisioning engine.
-- Model scores and the highest-profit cutoff should be **reported only after running and validating** the notebook. They are not hard-coded here because the repository's saved notebook does not include result outputs.
 - Results from synthetic data should not be generalized to real applicants or institutions.
 - Before production use, a model would need out-of-time validation, calibration checks, fairness/compliance review, data governance, and more realistic financial assumptions.
 
