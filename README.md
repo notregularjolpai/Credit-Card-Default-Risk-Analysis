@@ -132,7 +132,20 @@ These choices are **illustrative**, not forecasts or real lending-policy recomme
 - The project demonstrates a **methodology**, not a production-ready credit decisioning engine.
 - Results from synthetic data should not be generalized to real applicants or institutions.
 - Before production use, a model would need out-of-time validation, calibration checks, fairness/compliance review, data governance, and more realistic financial assumptions.
+## Data Dictionary
 
+| Variable | Description |
+|---|---|
+| `account_id` | Unique synthetic account identifier |
+| `income` | Simulated customer income |
+| `credit_limit` | Account credit limit |
+| `current_balance` | Recorded account balance |
+| `num_late_payments_12m` | Number of late payments over 12 months |
+| `utilization_rate` | Recorded credit utilization ratio |
+| `default_12m` | Default outcome indicator (1 = default, 0 = no default) |
+| `LGD_rate` | Loss-given-default assumption |
+
+These variables come from a simulated dataset and do not represent real customers.
 ## Next improvements
 
 - [x] Record actual ROC-AUC scores and cutoff results in a reproducible results table.
